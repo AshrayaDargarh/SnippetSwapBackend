@@ -2,7 +2,6 @@ import express, { json } from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import cors from "cors"
-import path from "path"
 dotenv.config()
 import { authRouter } from "./routes/auth.mjs"
 import { viewRouter } from "./routes/view.mjs"
@@ -52,10 +51,12 @@ app.get('/public/:id',async(req,res)=>{
         res.json(error)
     }
 })
-
-app.use("*",(req,res)=>{
-    res.sendFile(path.join(path.resolve(),'/dist/index.html'))
-  })
+app.get("/",(req,res)=>{
+    res.send("<h1>Inside the home dir</h1>")
+})
+// app.use("*",(req,res)=>{
+//     res.sendFile(path.join(path.resolve(),'/dist/index.html'))
+//   })
   
 const PORT=process.env.PORT || 4000
 app.listen(PORT,()=>{  
