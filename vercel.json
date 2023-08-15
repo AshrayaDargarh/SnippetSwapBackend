@@ -13,22 +13,6 @@
       "src": "/",
       "dest": "dist/index.html"
     },
-    {
-      "src":"/auth/login",
-      "dest":"index.js"
-    },
-    {
-      "src":"/auth/signUp",
-      "dest":"index.js"
-    },
-    {
-      "src":"/auth/forgot-password",
-      "dest":"index.js"
-    },
-    {
-      "src":"/auth/reset-password/(.*)",
-      "dest":"index.js"
-    },
    {
      "src": "/(.+)",
      "dest": "dist/$1" 
