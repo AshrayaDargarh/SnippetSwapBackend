@@ -36,12 +36,7 @@ const auth=(req,res,next)=>{
 }
 // middleware
 app.use(json())
-app.use(cors({
-    origin: 'https://snippet-swap-backend.vercel.app/', // specify the allowed origin
-    credentials: true, // allow cookies to be sent
-    methods: ['GET', 'POST'], // specify the allowed methods
-    // other options
-  }))
+app.use(cors())
 app.use('/auth',authRouter)
 app.use('/view',auth,viewRouter)
 app.use('/user',auth,userRouter)
