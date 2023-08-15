@@ -20,7 +20,7 @@ const Register = () => {
     e.preventDefault()
     try
     {
-      const res= axios.post('https://snippet-swap-backend.vercel.app/auth/signUp',user,{withCredentials:true})
+      const res= axios.post('https://snippet-swap-backend.vercel.app/auth/signUp',user)
       toast.promise(res, {
         pending: "Please wait your profile is being created...",
         success: "Account created successfully.", 
