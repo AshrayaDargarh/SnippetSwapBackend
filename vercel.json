@@ -3,7 +3,8 @@
   "builds":[
    {"src":"index.js",
    "use":"@vercel/node"
-   }, {
+   }, 
+   {
     "src":"dist/**",
      "use": "@vercel/static" ,
      "config": {
@@ -32,7 +33,6 @@
      "src": "/(.+)",
      "dest": "dist/$1" 
    },
-   
    {
       "src": "/",
       "dest": "dist/index.html"
