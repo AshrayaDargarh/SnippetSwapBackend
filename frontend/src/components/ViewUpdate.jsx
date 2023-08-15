@@ -22,7 +22,7 @@ const ViewUpdate = () => {
   async function getSnippet() {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`https://snippet-swap-backend.vercel.app/view/${viewId}`, {
+      const res = await axios.get(`/view/${viewId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSnippet(res.data);
@@ -54,8 +54,8 @@ const ViewUpdate = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.patch(
-        `https://snippet-swap.vercel.app/view/${viewId}`,
-        snippet,{withCredentials:true},
+        `/view/${viewId}`,
+        snippet,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if(res.data)
@@ -71,7 +71,7 @@ const ViewUpdate = () => {
     try {
       if (window.confirm("Do you really want to delete this?")) {
         const token = localStorage.getItem("token");
-        const res = await axios.delete(`https://snippet-swap.vercel.app/view/${viewId}`, {
+        const res = await axios.delete(`/view/${viewId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log(res);

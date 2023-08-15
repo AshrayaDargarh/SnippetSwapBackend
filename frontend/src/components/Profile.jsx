@@ -22,7 +22,7 @@ const Profile = () => {
   async function getUser() {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("https://snippet-swap-backend.vercel.app/user", {
+      const res = await axios.get("/user", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser({_id:res.data._id,userName:res.data.userName,firstName:res.data.firstName,lastName:res.data.lastName,email:res.data.email,password:''});

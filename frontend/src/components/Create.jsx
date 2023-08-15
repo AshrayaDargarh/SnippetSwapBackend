@@ -25,7 +25,7 @@ const Create = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("https://snippet-swap-backend.vercel.app/view", snippet,{withCredentials:true}, {
+      const res = await axios.post("/view", snippet,{withCredentials:true}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log('Res Data=',res.data)

@@ -19,7 +19,7 @@ const ForgotPassword = () => {
     try
     {
      
-      const res=axios.post('https://snippet-swap-backend.vercel.app/auth/forgot-password',email,{withCredentials:true})
+      const res=axios.post('/auth/forgot-password',email)
       toast.promise(res, {
         pending: "Please wait email is on the way...",
         success: "Please check you mail.", 

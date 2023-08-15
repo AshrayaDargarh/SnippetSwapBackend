@@ -18,7 +18,7 @@ const ViewPublic = () => {
     async function getView()
     {
         try {
-            const res=await axios.get(`https://snippet-swap-backend.vercel.app/public/${viewId}`)
+            const res=await axios.get(`/public/${viewId}`)
             setSnippet(res.data)
             const inputDate = new Date(res.data.intendedExpireAt);
             const currentDate = new Date();
