@@ -7,7 +7,7 @@ import { authRouter } from "./routes/auth.mjs"
 import { viewRouter } from "./routes/view.mjs"
 import { userRouter } from "./routes/user.mjs"
 import jwt from "jsonwebtoken"
-import { View } from "./models/view.mjs"
+import { publicRouter } from "./routes/public-access.mjs"
 const app=express()
  
 // db connection
@@ -35,21 +35,12 @@ const auth=(req,res,next)=>{
 }
 // middleware
 app.use(json())
-app.use(cors({origin:'https://snippetswap.onrender.com/'}))
+app.use(cors())
 app.use('/auth',authRouter)
 app.use('/view',auth,viewRouter)
 app.use('/user',auth,userRouter)
+app.use('/public-access',publicRouter)
 
-app.get('/public/:id',async(req,res)=>{
-    try {
-        const id=req.params.id
-        const view=await View.findById({_id:id})
-        res.json(view)
-        // res.send("Inside Public")
-    } catch (error) {
-        res.json(error)
-    }
-})
 app.get("/",(req,res)=>{
     res.send("<h1>Inside the home dir</h1>")
 })
