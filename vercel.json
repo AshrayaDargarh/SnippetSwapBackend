@@ -5,13 +5,14 @@
    "use":"@vercel/node"
    }, {
     "src":"dist/**",
-     "use": "@vercel/static" ,
-     "config": {
-      "distDir": "dist"
-    } 
+     "use": "@vercel/static" 
    }
   ],
   "routes": [
+    {
+      "src": "/",
+      "dest": "dist/index.html"
+    },
     {
       "src":"/auth/login",
       "dest":"index.js"
@@ -28,10 +29,6 @@
       "src":"/auth/reset-password/(.*)",
       "dest":"index.js"
     },
-   {
-     "src": "/",
-     "dest": "dist/index.html" 
-   },
    {
      "src": "/(.+)",
      "dest": "dist/$1" 
