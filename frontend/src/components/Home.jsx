@@ -17,7 +17,7 @@ const Home = () => {
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           <li className="flex flex-col items-center">
             <img
-              src="/src/assets/images/create.svg"
+              src="/src/assets/icons/create.svg"
               alt="Create"
               className="w-24  object-cover "
             />
@@ -31,7 +31,7 @@ const Home = () => {
           </li>
           <li className="flex flex-col items-center">
             <img
-              src="/src/assets/images/share.svg"
+              src="/src/assets/icons/share.svg"
               alt="Share"
               className="w-24  object-cover"
             />
@@ -44,7 +44,7 @@ const Home = () => {
           </li>
           <li className="flex flex-col items-center">
             <img
-              src="/src/assets/images/qr-code.svg"
+              src="/src/assets/icons/qr-code.svg"
               alt="Access"
               className="w-24 object-cover"
             />

@@ -55,7 +55,7 @@ const ViewUpdate = () => {
       const token = localStorage.getItem("token");
       const res = await axios.patch(
         `https://snippet-swap.vercel.app/view/${viewId}`,
-        snippet,
+        snippet,{withCredentials:true},
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if(res.data)

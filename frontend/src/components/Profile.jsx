@@ -44,7 +44,7 @@ const Profile = () => {
         delete user.password
       }
       console.log('After removing password',user)
-      const res=await axios.patch(`https://snippet-swap-backend.vercel.app/user/${user._id}`,user,{headers:{Authorization:`Bearer ${token}`}})
+      const res=await axios.patch(`https://snippet-swap-backend.vercel.app/user/${user._id}`,user,{withCredentials:true},{headers:{Authorization:`Bearer ${token}`}})
       if(res.data)
       {
         toast.success('Profile updated successfully');

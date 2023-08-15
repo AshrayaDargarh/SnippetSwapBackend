@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault()
     try
     {
-      const res=await axios.post('https://snippet-swap-backend.vercel.app/auth/login',user)
+      const res=await axios.post('https://snippet-swap-backend.vercel.app/auth/login',user,{withCredentials:true})
       // localStorage.setItem('token',res.data.token)
       console.log('Sign is submitted',res)
       setIsValid(true)
