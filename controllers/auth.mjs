@@ -7,7 +7,7 @@ import nodemailer from "nodemailer"
 export const signUp=async(req,res)=>{
     const user=await User(req.body)
     const saltRounds = 10;
-    const hash=bcrypt.hashSync(req.body.password,saltRounds)    
+    const hash=await bcrypt.hash(req.body.password,saltRounds)    
     user.password=hash
     try{
         const doc=await user.save()
@@ -98,7 +98,7 @@ export const resetPassword=async(req,res)=>{
         {
             return res.status(400).json({message:'Invalid or expired token'})
         }
-        const hash=bcrypt.hashSync(password,10)
+        const hash=await bcrypt.hash(password,10)
         user.password=hash
         user.resetPasswordToken=undefined
         user.resetPasswordExpires=undefined
