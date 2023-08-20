@@ -39,7 +39,7 @@ export const login=async(req,res)=>{
     }
     catch(error)
     {
-        res.status(400).json({message:"Invalid Email Or password"})
+        res.status(400).json(error)
     }    
 }
 

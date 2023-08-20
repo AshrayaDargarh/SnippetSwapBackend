@@ -11,7 +11,7 @@ import { publicRouter } from "./routes/public-access.mjs"
 const app=express()
  
 // db connection
-main().catch(err=>console.log(err))
+main().catch(err=>console.log(err,'Something went wrong while connecting with the database'))
 async function main()
 {
     await mongoose.connect(process.env.MONGO_URL)
