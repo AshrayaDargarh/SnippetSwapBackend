@@ -4,4 +4,4 @@ export const userRouter=express.Router()
 
 userRouter
 .get('/',getUser)
-.patch('/:id',updateUser)
+.patch('/:id',updateUser) 
