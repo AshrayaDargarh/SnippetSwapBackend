@@ -17,19 +17,19 @@ export const createView=async(req,res)=>{
     } catch (error) {
         res.status(400).json(error)
     }
-}
-cron.schedule('* * * * *',async()=>{
-    try {
-        const currentTime=new Date()
-       const doc= await View.deleteMany({intendedExpireAt:{$lte:currentTime}})
-       if(doc.deletedCount)
-       {
-        console.log('Expired view removed',doc)        
-       }
-    } catch (error) {
-        console.log('Error while removing expired view:',error)
-    }
-})
+} 
+// cron.schedule('* * * * *',async()=>{
+//     try {
+//         const currentTime=new Date()
+//        const doc= await View.deleteMany({intendedExpireAt:{$lte:currentTime}})
+//        if(doc.deletedCount)
+//        {
+//         console.log('Expired view removed',doc)        
+//        }
+//     } catch (error) {
+//         console.log('Error while removing expired view:',error)
+//     }
+// })
 
 export const getViews=async(req,res)=>{
     try {
