@@ -12,7 +12,7 @@ const viewSchema=new Schema({
         type:Schema.Types.ObjectId,
         ref:'User'
     }
-})
+}) 
 
 export const View=mongoose.model('View',viewSchema)
 // {
