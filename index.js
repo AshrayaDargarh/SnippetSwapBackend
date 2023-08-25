@@ -35,7 +35,7 @@ const auth=(req,res,next)=>{
 }
 // middleware
 app.use(json())
-app.use(cors())
+app.use(cors({origin:`${process.env.HOST_UR}`}))
 app.use('/auth',authRouter)
 app.use('/view',auth,viewRouter)
 app.use('/user',auth,userRouter)
