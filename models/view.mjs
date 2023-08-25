@@ -4,7 +4,9 @@ const {Schema}=mongoose
 const viewSchema=new Schema({
     title:{type:String,required:true,default:'Untitled'},
     data:{type:String,required:true},
-    intendedExpireAt:{type:Date,required:true},
+    daysToExpire:{type:Number},
+    updatedAt:{type:Date},
+    isExpired:{type:Boolean ,default:false},
     userName:String,
     user:{
         type:Schema.Types.ObjectId,

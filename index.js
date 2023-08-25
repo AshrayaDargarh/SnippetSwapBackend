@@ -39,14 +39,11 @@ app.use(cors())
 app.use('/auth',authRouter)
 app.use('/view',auth,viewRouter)
 app.use('/user',auth,userRouter)
-app.use('/public-access',publicRouter)
+app.use('/public-access',publicRouter) 
 
 app.get("/",(req,res)=>{
     res.send("<h1>Inside the home dir</h1>")
 })
-// app.use("*",(req,res)=>{
-//     res.sendFile(path.join(path.resolve(),'/dist/index.html'))
-//   })
   
 const PORT=process.env.PORT || 4000
 app.listen(PORT,()=>{  
