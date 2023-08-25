@@ -34,20 +34,9 @@ const auth=(req,res,next)=>{
     }
 }
 // middleware
-const corsOptions = {
-    origin: 'https://snippetswap.onrender.com/',
-    // or
-    origin: function (origin, callback) {
-      if (origin === 'https://snippetswap.onrender.com/') {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    }
-  }
 
 app.use(json())
-app.use(cors(corsOptions))
+app.use(cors())
 app.use('/auth',authRouter)
 app.use('/view',auth,viewRouter)
 app.use('/user',auth,userRouter)
