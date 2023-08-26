@@ -9,7 +9,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "dest": "index.js",
+      "destination": "index.js",
       "headers": {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin": "*",
