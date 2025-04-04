@@ -16,7 +16,7 @@ const userSchema= new Schema({
         type:String,
         required:true
     },
-    isVerified:{type:Boolean,default:false}, 
+    isVerified:{type:Boolean,default:true}, 
     resetPasswordToken:String,
     resetPasswordExpires:Date
 })

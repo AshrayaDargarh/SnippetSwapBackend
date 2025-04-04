@@ -17,6 +17,7 @@ async function main()
     await mongoose.connect(process.env.MONGO_URL)
     console.log("DB Connected")
 }
+
 const auth=(req,res,next)=>{
     try{
         const token=req.get('Authorization').split('Bearer ')[1]

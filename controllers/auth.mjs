@@ -40,7 +40,9 @@ async function sendVerifyMail(user,email,token)
 
 export const signUp=async(req,res)=>{
     const user=await User(req.body)
+    console.log('User heree',user)
     const saltRounds = 10;
+    console.log('Req Password',req.body.password, 'Salts heree',saltRounds)
     const hash=await bcrypt.hash(req.body.password,saltRounds)    
     user.password=hash
    
@@ -49,10 +51,11 @@ export const signUp=async(req,res)=>{
         user.resetPasswordToken=token
         user.resetPasswordExpires=Date.now()+3600000 // 1hr    
         const doc=await user.save()
+        console.log('Doc heree',doc)
         if(doc)
         { 
-           
-            sendVerifyMail(doc.userName,doc.email,token)
+           console.log('Register User res=',doc)
+            // sendVerifyMail(doc.userName,doc.email,token)
             res.status(201).json(doc);
         }
     }
@@ -162,6 +165,7 @@ export const forgotPassword=async(req,res)=>{
             `If you did not request this, please ignore this email and your password will remain unchanged.\n`,
         }
         transporter.sendMail(mailOptions,(error,response)=>{
+            console.log('Error While sending mail Hereee',error)
             if(error)
             {
                 return res.status(500).json({message:'Error sending email'})
@@ -178,11 +182,14 @@ export const forgotPassword=async(req,res)=>{
     } 
 }
 export const resetPassword=async(req,res)=>{
-    const {token}=req.params
-    const {password}=req.body
+    const token = req.params.token;
+  const { password } = req.body; 
+    console.log('Token Hereee',token)
+    console.log('Updated Password heree',password)
     try {
         const user=await User.findOne({resetPasswordToken:token,resetPasswordExpires:{$gt:Date.now()}})
-
+        console.log('User Found heree',user)
+        // console.log('User response hwereee',user1)
         if(!user)
         {
             return res.status(400).json({message:'Invalid or expired token'})
@@ -195,6 +202,7 @@ export const resetPassword=async(req,res)=>{
         return res.status(200).json({message:"Password Updated"})
     } 
     catch (error) {
+        console.log('Error hereee',error)
         res.status(500).json({message:'Server error'})
     }
 }
